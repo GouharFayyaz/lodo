@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main {
+        width: 70%;
+        height: 70vh;
+        border: 10px solid rgb(240, 8, 8);
+        margin: 7% auto;
+        display: flex;
+        flex-direction: column;
+        background-image: linear-gradient( to right, pink ,purple);
+    }
+
+    .logo {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        background-color: bisque;
+    }
+
+    .pl {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        justify-content: space-around;
+        background-color: blue;
+        color: white;
+    }
+
+    .img {
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .img1 {
+        height: 100px;
+        width: 100px;
+    }
+
+    .img2 {
+        height: 100px;
+        width: 100px;
+    }
+
+    button {
+        width: 15%;
+        height: 8vh;
+        margin: 6% auto;
+        background-color: blue;
+        color: white;
+        border: none;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        
+        <div class="logo">
+            <h1 class="h1">LUDO 2</h1>
+        </div>
+
+        <div class="pl">
+            <h1>Player1</h1>
+            <h1>Player2</h1>
+        </div>
+
+        <div class="img">
+            <img src="./di1.jpeg" alt="" class="img1">
+            <img src="./di2.jpeg" alt="" class="img2">
+        </div>
+        
+        <button>click</button>
+    </div>
+</body>
+<script>
+    var h1 = document.querySelector(".h1")
+    var img1 = document.querySelector(".img1")
+    var img2 = document.querySelector(".img2")
+    var btn = document.querySelector("button")
+
+    btn.addEventListener("click", () => {
+        var play1 = Math.floor(Math.random() * 6 + 1)
+        var player1 = `di${play1}.jpeg`
+        img1.setAttribute("src", player1)
+
+        var play2 = Math.floor(Math.random() * 6 + 1)
+        var player2 = `di${play2}.jpeg`
+        img2.setAttribute("src", player2)
+
+        if (play1 > play2) { h1.innerHTML = "Player1 is winner" }
+        else if (play2 > play1) { h1.innerHTML = "Player2 is winner" }
+        else if (play1 = play2) { h1.innerHTML = "Draw" }
+
+    })
+</script>
+
+</html>
